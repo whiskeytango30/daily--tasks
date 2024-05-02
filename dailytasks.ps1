@@ -1,3 +1,5 @@
+try{
+
 $tempPath = "C:\Windows\Temp\*"
 $spoolerService = "Spooler"
 
@@ -15,4 +17,7 @@ Remove-Item -Path $tempPath -Recurse
     DiskSpace = $diskSpace
     SpoolerServiceStatus = $spoolerStatus.Status
     tempFilesCleared = $tempFilesRemaining.Count -eq 0
+}
+}catch{
+    Write-Host $_.Exception.Message
 }
